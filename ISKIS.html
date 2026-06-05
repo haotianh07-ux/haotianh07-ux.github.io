@@ -44,15 +44,15 @@
             padding: 20px;
         }
 
-        /* Applying Aboreto font directly to your branding elements */
+        /* APPLYING ABORETO TO THE LOGO */
         .brand-name {
-            font-family: 'Aboreto', system-ui;
+            font-family: 'Aboreto', system-ui, sans-serif;
             font-size: 2.6rem;
             font-weight: 400;
             letter-spacing: 0.6em;
             text-transform: uppercase;
             margin-bottom: 15px;
-            padding-left: 0.6em; /* Keeps text perfectly centered with letter-spacing */
+            padding-left: 0.6em; /* Keeps the text centered with high kerning */
         }
 
         .sub-title {
@@ -88,7 +88,7 @@
         }
 
         .collection-heading {
-            font-family: 'Aboreto', system-ui;
+            font-family: 'Aboreto', system-ui, sans-serif;
             font-size: 1.1rem;
             font-weight: 400;
             letter-spacing: 0.3em;
@@ -112,19 +112,15 @@
             cursor: pointer;
             overflow: hidden;
             transition: box-shadow 0.4s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
-            
-            /* Hidden state when scrolled away */
             opacity: 0;
             transform: translateY(30px);
         }
 
-        /* Active scroll state */
         .product-card.reveal {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Premium mouse hover interaction */
         .product-card.reveal:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
@@ -176,7 +172,7 @@
             background-color: #fff;
             border-top: 1px solid var(--light-gray);
             margin-top: 140px;
-            padding: 80px 20px 40px 20px;
+            padding: 80px 20px 60px 20px;
         }
 
         .footer-content-wrapper {
@@ -211,8 +207,9 @@
             text-align: left;
         }
 
+        /* APPLYING ABORETO TO FOOTER LOGO */
         .footer-logo {
-            font-family: 'Aboreto', system-ui;
+            font-family: 'Aboreto', system-ui, sans-serif;
             font-size: 1.3rem;
             font-weight: 400;
             letter-spacing: 0.4em;
@@ -281,4 +278,113 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             font-weight: 600;
-            color: var
+            color: var(--charcoal);
+            padding: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="brand-name">ISKIS</div>
+        <div class="sub-title">Studio / Edition 01</div>
+        <div class="scroll-indicator" onclick="scrollToProducts()">Scroll to View &#8595;</div>
+    </div>
+
+    <div class="container" id="products-section">
+        <div class="collection-heading">The Debut Capsule</div>
+        
+        <div class="grid">
+            <div class="product-card">
+                <div class="image-container">
+                    <div class="product-image img-loose-shirt">Loose Performance Tee</div>
+                </div>
+                <div class="product-title">Loose-Sleeve Performance Tee</div>
+                <div class="product-price">$32.00</div>
+            </div>
+            <div class="product-card">
+                <div class="image-container">
+                    <div class="product-image img-pump-cover">Heavy Pump Cover</div>
+                </div>
+                <div class="product-title">Max Heavyweight Pump Cover</div>
+                <div class="product-price">$38.00</div>
+            </div>
+            <div class="product-card">
+                <div class="image-container">
+                    <div class="product-image img-pants">Tech Fleece Jogger</div>
+                </div>
+                <div class="product-title">Tapered Tech Fleece Jogger</div>
+                <div class="product-price">$40.00</div>
+            </div>
+            <div class="product-card">
+                <div class="image-container">
+                    <div class="product-image img-accessory">Heavy Crew Sock</div>
+                </div>
+                <div class="product-title">Heavy-Knit Crew Sock</div>
+                <div class="product-price">$16.00</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content-wrapper">
+            
+            <div class="footer-slogan-row">
+                <div class="slogan">"Symmetry in motion, strength in structural restraint."</div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div>
+                    <div class="footer-logo">ISKIS</div>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">Edition 01</p>
+                </div>
+
+                <div>
+                    <div class="footer-heading">Contact Us</div>
+                    <ul class="footer-links">
+                        <li><a href="mailto:studio@iskis.com">studio@iskis.com</a></li>
+                        <li><a href="#">Instagram: @iskis.studio</a></li>
+                        <li><a href="#">Support & Inquiries</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="footer-heading">Studio Updates</div>
+                    <p style="font-size: 0.85rem; color: #666; margin: 0 0 15px 0;">Subscribe to be notified of Capsule 02 drop windows.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" class="newsletter-input" placeholder="ENTER YOUR EMAIL" required>
+                        <button type="submit" class="newsletter-btn">Join</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToProducts() {
+            document.getElementById('products-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const observerOptions = {
+            root: null,
+            threshold: 0.05,
+            rootMargin: "0px 0px -20px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                } else {
+                    entry.target.classList.remove('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>
