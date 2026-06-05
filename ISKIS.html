@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISKIS STUDIO | Debut Capsule</title>
+    <style>
+        /* LUXURY MINIMALIST STYLING */
+        :root {
+            --ivory: #FDFBF7;
+            --light-gray: #E5E5E5;
+            --charcoal: #2C2C2C;
+            --sage: #8A9A86;
+            --lavender: #BDB2C6;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--ivory);
+            color: var(--charcoal);
+            text-align: center;
+        }
+
+        /* HEADER & BRANDING */
+        header {
+            padding: 60px 20px 40px 20px;
+        }
+
+        .brand-name {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .sub-title {
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #777;
+        }
+
+        /* PRODUCT GRID */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid var(--light-gray);
+            padding: 15px;
+            text-align: left;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover {
+            opacity: 0.9;
+        }
+
+        /* Placeholder for POD Mockup Image */
+        .product-image {
+            width: 100%;
+            height: 350px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+        }
+
+        /* Specific color swatch previews for your capsule */
+        .img-loose-shirt { background-color: var(--lavender); color: var(--ivory); }
+        .img-pump-cover { background-color: var(--light-gray); color: var(--charcoal); }
+        .img-pants { background-color: #4a4a4a; color: var(--ivory); }
+        .img-accessory { background-color: var(--ivory); border: 1px solid var(--light-gray); color: var(--charcoal); }
+
+        .product-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 10px 0 5px 0;
+        }
+
+        .product-price {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        footer {
+            margin: 80px 0 40px 0;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: #999;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-name">I S K I S</div>
+        <div class="sub-title">Capsule 01 / Studio</div>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            
+            <div class="product-card">
+                <div class="product-image img-loose-shirt">[ Muted Lavender ]</div>
+                <div class="product-title">Loose-Sleeve Performance Tee</div>
+                <div class="product-price">$32.00</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image img-pump-cover">[ Light Gray ]</div>
+                <div class="product-title">Max Heavyweight Pump Cover</div>
+                <div class="product-price">$38.00</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image img-pants">[ Charcoal ]</div>
+                <div class="product-title">Tapered Tech Fleece Jogger</div>
+                <div class="product-price">$40.00</div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image img-accessory">[ Ivory ]</div>
+                <div class="product-title">Heavy-Knit Crew Sock</div>
+                <div class="product-price">$16.00</div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 ISKIS Studio. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
