@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISKIS STUDIO | Debut Capsule</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+
     <style>
         /* LUXURY MINIMALIST STYLING */
         :root {
@@ -39,13 +44,15 @@
             padding: 20px;
         }
 
+        /* Applying Aboreto font directly to your branding elements */
         .brand-name {
-            font-size: 2.6rem; /* Reduced from 3.5rem for a tighter look */
-            font-weight: 300;
+            font-family: 'Aboreto', system-ui;
+            font-size: 2.6rem;
+            font-weight: 400;
             letter-spacing: 0.6em;
             text-transform: uppercase;
             margin-bottom: 15px;
-            padding-left: 0.6em;
+            padding-left: 0.6em; /* Keeps text perfectly centered with letter-spacing */
         }
 
         .sub-title {
@@ -81,8 +88,9 @@
         }
 
         .collection-heading {
+            font-family: 'Aboreto', system-ui;
             font-size: 1.1rem;
-            font-weight: 300;
+            font-weight: 400;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             margin-bottom: 60px;
@@ -103,21 +111,20 @@
             text-align: left;
             cursor: pointer;
             overflow: hidden;
-            /* Transition handles both the reveal and hover effects smoothly */
             transition: box-shadow 0.4s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
             
-            /* Default state when off-screen */
+            /* Hidden state when scrolled away */
             opacity: 0;
             transform: translateY(30px);
         }
 
-        /* Active state handled repeatedly via JS */
+        /* Active scroll state */
         .product-card.reveal {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Premium hover interaction */
+        /* Premium mouse hover interaction */
         .product-card.reveal:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
@@ -205,8 +212,9 @@
         }
 
         .footer-logo {
+            font-family: 'Aboreto', system-ui;
             font-size: 1.3rem;
-            font-weight: 300;
+            font-weight: 400;
             letter-spacing: 0.4em;
             text-transform: uppercase;
         }
@@ -273,496 +281,4 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             font-weight: 600;
-            color: var(--charcoal);
-            padding: 0 5px;
-        }
-
-        .footer-bottom {
-            margin-top: 60px;
-            padding-top: 25px;
-            border-top: 1px solid #f0f0f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            color: #aaa;
-            text-transform: uppercase;
-            text-align: left;
-        }
-
-        @media (max-width: 600px) {
-            .footer-bottom {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="hero">
-        <div class="brand-name">ISKIS</div>
-        <div class="sub-title">Studio / Edition 01</div>
-        <div class="scroll-indicator" onclick="scrollToProducts()">Scroll to View &#8595;</div>
-    </div>
-
-    <div class="container" id="products-section">
-        <div class="collection-heading">The Debut Capsule</div>
-        
-        <div class="grid">
-            <div class="product-card">
-                <div class="image-container">
-                    <div class="product-image img-loose-shirt">Loose Performance Tee</div>
-                </div>
-                <div class="product-title">Loose-Sleeve Performance Tee</div>
-                <div class="product-price">$32.00</div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <div class="product-image img-pump-cover">Heavy Pump Cover</div>
-                </div>
-                <div class="product-title">Max Heavyweight Pump Cover</div>
-                <div class="product-price">$38.00</div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <div class="product-image img-pants">Tech Fleece Jogger</div>
-                </div>
-                <div class="product-title">Tapered Tech Fleece Jogger</div>
-                <div class="product-price">$40.00</div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <div class="product-image img-accessory">Heavy Crew Sock</div>
-                </div>
-                <div class="product-title">Heavy-Knit Crew Sock</div>
-                <div class="product-price">$16.00</div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-content-wrapper">
-            
-            <div class="footer-slogan-row">
-                <div class="slogan">"Symmetry in motion, strength in structural restraint."</div>
-            </div>
-
-            <div class="footer-links-grid">
-                <div>
-                    <div class="footer-logo">ISKIS</div>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">Edition 01</p>
-                </div>
-
-                <div>
-                    <div class="footer-heading">Contact Us</div>
-                    <ul class="footer-links">
-                        <li><a href="mailto:studio@iskis.com">studio@iskis.com</a></li>
-                        <li><a href="#">Instagram: @iskis.studio</a></li>
-                        <li><a href="#">Support & Inquiries</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <div class="footer-heading">Studio Updates</div>
-                    <p style="font-size: 0.85rem; color: #666; margin: 0 0 15px 0;">Subscribe to be notified of Capsule 02 drop windows.</p>
-                    <form class="newsletter-form" onsubmit="event.preventDefault();">
-                        <input type="email" class="newsletter-input" placeholder="ENTER YOUR EMAIL" required>
-                        <button type="submit" class="newsletter-btn">Join</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div>&copy; 2026 ISKIS Studio. All Rights Reserved.</div>
-                <div style="letter-spacing: 0.05em;">Designed for High-Perception Execution</div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function scrollToProducts() {
-            document.getElementById('products-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        const observerOptions = {
-            root: null,
-            threshold: 0.05,
-            rootMargin: "0px 0px -20px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    // Item comes into view: apply animation layout
-                    entry.target.classList.add('reveal');
-                } else {
-                    // Item exits view: strip class so it triggers again on return scroll
-                    entry.target.classList.remove('reveal');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.product-card').forEach(card => {
-            observer.observe(card);
-        });
-    </script>
-
-</body>
-</html>            position: relative;
-            box-sizing: border-box;
-            padding: 20px;
-        }
-
-        .brand-name {
-            font-size: 3.5rem;
-            font-weight: 300;
-            letter-spacing: 0.6em;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            padding-left: 0.6em;
-        }
-
-        .sub-title {
-            font-size: 0.9rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: #777;
-            padding-left: 0.4em;
-        }
-
-        /* SCROLL INDICATOR */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: #aaa;
-            animation: bounce 2s infinite ease-in-out;
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(8px); }
-        }
-
-        /* MAIN CONTENT AREA */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 100px 20px 40px 20px;
-        }
-
-        .collection-heading {
-            font-size: 1.2rem;
-            font-weight: 300;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 60px;
-        }
-
-        /* PRODUCT GRID */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .product-card {
-            background-color: #fff;
-            border: 1px solid var(--light-gray);
-            padding: 15px;
-            text-align: left;
-            cursor: pointer;
-            overflow: hidden;
-            transition: box-shadow 0.4s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .product-card.reveal {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .product-card:hover {
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
-        }
-
-        .image-container {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
-
-        .img-loose-shirt { background-color: var(--lavender); color: var(--ivory); }
-        .img-pump-cover { background-color: var(--light-gray); color: var(--charcoal); }
-        .img-pants { background-color: #4a4a4a; color: var(--ivory); }
-        .img-accessory { background-color: var(--ivory); border: 1px solid var(--light-gray); color: var(--charcoal); }
-
-        .product-title {
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin: 10px 0 5px 0;
-        }
-
-        .product-price {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        /* PREMIUM EXPANDED FOOTER */
-        footer {
-            background-color: #fff;
-            border-top: 1px solid var(--light-gray);
-            margin-top: 120px;
-            padding: 80px 20px 40px 20px;
-            text-align: left;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-brand .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 300;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        /* Brand Slogan styling */
-        .footer-brand .slogan {
-            font-size: 0.85rem;
-            font-style: italic;
-            color: #666;
-            line-height: 1.6;
-            max-width: 280px;
-        }
-
-        .footer-heading {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            color: var(--charcoal);
-        }
-
-        /* Contact Details Links */
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            font-size: 0.85rem;
-            color: #666;
-            text-decoration: none;
-            letter-spacing: 0.05em;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #000;
-        }
-
-        /* Minimalist Input Form Field */
-        .newsletter-form {
-            display: flex;
-            margin-top: 15px;
-            border-bottom: 1px solid var(--charcoal);
-            padding-bottom: 5px;
-            max-width: 300px;
-        }
-
-        .newsletter-input {
-            border: none;
-            background: none;
-            font-size: 0.85rem;
-            padding: 5px 0;
-            width: 100%;
-            color: var(--charcoal);
-            outline: none;
-        }
-
-        .newsletter-input::placeholder {
-            color: #aaa;
-            letter-spacing: 0.1em;
-        }
-
-        .newsletter-btn {
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: var(--charcoal);
-            padding: 0 5px;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 60px auto 0 auto;
-            padding-top: 25px;
-            border-top: 1px solid #f0f0f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            color: #aaa;
-            text-transform: uppercase;
-        }
-
-        /* Mobile optimization for footer layout */
-        @media (max-width: 600px) {
-            .footer-bottom {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="hero">
-        <div class="brand-name">ISKIS</div>
-        <div class="sub-title">Studio / Edition 01</div>
-        <div class="scroll-indicator" onclick="scrollToProducts()">Scroll to View &#8595;</div>
-    </div>
-
-    <div class="container" id="products-section">
-        <div class="collection-heading">The Debut Capsule</div>
-        
-        <div class="grid">
-            <div class="product-card">
-                <div class="image-container">
-                    <div class="product-image img-loose-shirt">Loose Performance Tee</div>
-                </div>
-                <div class="product-title">Loose-Sleeve Performance Tee</div>
-                <div class="product-price">$32.00</div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <div class="product-image img-pump-cover">Heavy Pump Cover</div>
-                </div>
-                <div class="product-title">Max Heavyweight Pump Cover</div>
-                <div class="product-price">$38.00</div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <div class="product-image img-pants">Tech Fleece Jogger</div>
-                </div>
-                <div class="product-title">Tapered Tech Fleece Jogger</div>
-                <div class="product-price">$40.00</div>
-            </div>
-            <div class="product-card">
-                <div class="image-container">
-                    <div class="product-image img-accessory">Heavy Crew Sock</div>
-                </div>
-                <div class="product-title">Heavy-Knit Crew Sock</div>
-                <div class="product-price">$16.00</div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            
-            <div class="footer-brand">
-                <div class="footer-logo">ISKIS</div>
-                <div class="slogan">"Symmetry in motion, strength in structural restraint."</div>
-            </div>
-
-            <div>
-                <div class="footer-heading">Contact Us</div>
-                <ul class="footer-links">
-                    <li><a href="mailto:studio@iskis.com">studio@iskis.com</a></li>
-                    <li><a href="#">Instagram: @iskis.studio</a></li>
-                    <li><a href="#">Support & Inquiries</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <div class="footer-heading">Studio Updates</div>
-                <p style="font-size: 0.85rem; color: #666; margin: 0 0 15px 0;">Subscribe to be notified of Capsule 02 drop windows.</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault();">
-                    <input type="email" class="newsletter-input" placeholder="ENTER YOUR EMAIL" required>
-                    <button type="submit" class="newsletter-btn">Join</button>
-                </form>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <div>&copy; 2026 ISKIS Studio. All Rights Reserved.</div>
-            <div style="letter-spacing: 0.05em;">Designed for High-Perception Execution</div>
-        </div>
-    </footer>
-
-    <script>
-        function scrollToProducts() {
-            document.getElementById('products-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        const observerOptions = {
-            root: null,
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('reveal');
-                    }, index * 150); 
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.product-card').forEach(card => {
-            observer.observe(card);
-        });
-    </script>
-
-</body>
-</html>
+            color: var
