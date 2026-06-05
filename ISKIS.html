@@ -14,6 +14,11 @@
             --lavender: #BDB2C6;
         }
 
+        /* Smooth scrolling behavior for the page */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -21,11 +26,19 @@
             background-color: var(--ivory);
             color: var(--charcoal);
             text-align: center;
+            opacity: 0;
+            animation: fadeInPage 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Elegant page fade-in on load */
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* HEADER & BRANDING */
         header {
-            padding: 60px 20px 40px 20px;
+            padding: 80px 20px 40px 20px;
         }
 
         .brand-name {
@@ -62,29 +75,42 @@
             border: 1px solid var(--light-gray);
             padding: 15px;
             text-align: left;
-            transition: opacity 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            transition: box-shadow 0.4s ease;
         }
 
         .product-card:hover {
-            opacity: 0.9;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
-        /* Placeholder for POD Mockup Image */
-        .product-image {
+        /* IMAGE CONTAINER & ZOOM ANIMATION */
+        .image-container {
             width: 100%;
             height: 350px;
-            background-color: var(--light-gray);
+            overflow: hidden; /* Keeps the zoom contained */
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #aaa;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 15px;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth luxury zoom */
         }
 
-        /* Specific color swatch previews for your capsule */
+        /* Zoom trigger on hover */
+        .product-card:hover .product-image {
+            transform: scale(1.06);
+        }
+
+        /* Specific color swatch previews */
         .img-loose-shirt { background-color: var(--lavender); color: var(--ivory); }
         .img-pump-cover { background-color: var(--light-gray); color: var(--charcoal); }
         .img-pants { background-color: #4a4a4a; color: var(--ivory); }
@@ -96,6 +122,11 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin: 10px 0 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .product-card:hover .product-title {
+            color: #000;
         }
 
         .product-price {
@@ -104,7 +135,7 @@
         }
 
         footer {
-            margin: 80px 0 40px 0;
+            margin: 120px 0 40px 0;
             font-size: 0.75rem;
             letter-spacing: 0.2em;
             color: #999;
@@ -123,25 +154,33 @@
         <div class="grid">
             
             <div class="product-card">
-                <div class="product-image img-loose-shirt">[ Muted Lavender ]</div>
+                <div class="image-container">
+                    <div class="product-image img-loose-shirt">[ Muted Lavender ]</div>
+                </div>
                 <div class="product-title">Loose-Sleeve Performance Tee</div>
                 <div class="product-price">$32.00</div>
             </div>
 
             <div class="product-card">
-                <div class="product-image img-pump-cover">[ Light Gray ]</div>
+                <div class="image-container">
+                    <div class="product-image img-pump-cover">[ Light Gray ]</div>
+                </div>
                 <div class="product-title">Max Heavyweight Pump Cover</div>
                 <div class="product-price">$38.00</div>
             </div>
 
             <div class="product-card">
-                <div class="product-image img-pants">[ Charcoal ]</div>
+                <div class="image-container">
+                    <div class="product-image img-pants">[ Charcoal ]</div>
+                </div>
                 <div class="product-title">Tapered Tech Fleece Jogger</div>
                 <div class="product-price">$40.00</div>
             </div>
 
             <div class="product-card">
-                <div class="product-image img-accessory">[ Ivory ]</div>
+                <div class="image-container">
+                    <div class="product-image img-accessory">[ Ivory ]</div>
+                </div>
                 <div class="product-title">Heavy-Knit Crew Sock</div>
                 <div class="product-price">$16.00</div>
             </div>
