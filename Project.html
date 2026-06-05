@@ -3,9 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My Creative Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Global & Centered Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            /* Vibrant Gradient Background */
+            background: linear-gradient(135deg, #0f0c20 0%, #15103c 50%, #051937 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers everything horizontally */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 80px 20px;
+            text-align: center; /* Centers all inner text and elements */
+        }
+
+        /* --- Header Navigation --- */
+        header {
+            width: 100%;
+            background-color: rgba(15, 12, 32, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #ff7b00; /* Vibrant Orange accent for logo */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00f2fe; /* Vibrant Cyan on hover */
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .hero-content .highlight {
+            color: #00f2fe; /* Vibrant Teal/Cyan */
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+        }
+
+        /* Glowing Gradient Button */
+        .btn {
+            background: linear-gradient(45deg, #ff7b00, #ffae00);
+            color: #fff;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 123, 0, 0.6);
+        }
+
+        /* --- Headings --- */
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            margin: 0 auto 40px auto; /* Centers the line */
+            border-radius: 2px;
+        }
+
+        /* --- About Section --- */
+        .about-text {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+
+        /* --- Projects Grid --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        /* Distinct Vibrant Borders for Projects */
+        .p-one { border: 2px solid #00f2fe; }
+        .p-two { border: 2px solid #ff7b00; }
+        .p-three { border: 2px solid #9b51e0; }
+
+        .project-card h3 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+
+        .project-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .p-one .project-link:hover { color: #00f2fe; }
+        .p-two .project-link:hover { color: #ff7b00; }
+        .p-three .project-link:hover { color: #9b51e0; }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- Contact Section --- */
+        .contact-p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-links a {
+            font-size: 2.2rem;
+            color: #cbd5e1;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.15);
+        }
+        
+        .social-links .github:hover { color: #fff; }
+        .social-links .linkedin:hover { color: #0077b5; }
+        .social-links .envelope:hover { color: #ff7b00; }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: auto;
+            padding: 30px 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -15,7 +265,6 @@
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -25,16 +274,65 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
-            <p>A passionate developer / creator building cool things with code.</p>
+            <h1>Hi, I'm <span class="highlight">[Your Name]</span></h1>
+            <p>A passionate developer building cool things with code</p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
 
     <section id="about" class="container">
         <h2>About Me</h2>
-        <div class="about-content">
-            <p>Hello! I am a student/developer interested in creating impactful projects. I love learning new technologies, solving problems, and collaborating on digital creations. Turn this paragraph into a quick summary of who you are and what drives you!</p>
+        <div class="underline"></div>
+        <p class="about-text">
+            I am a student and developer focused on creating clean, colorful, and engaging user experiences. 
+            I love diving into new projects, solving programming puzzles, and styling websites to look modern and sharp. 
+            Replace this text with a few sentences highlighting your unique journey and what you enjoy working on!
+        </p>
+    </section>
+
+    <section id="projects" class="container">
+        <h2>Featured Projects</h2>
+        <div class="underline"></div>
+        <div class="projects-grid">
+            
+            <div class="project-card p-one">
+                <h3>Project One</h3>
+                <p>Project description explaining the cool things you built with your code.</p>
+                <a href="#" class="project-link">Link More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="project-card p-two">
+                <h3>Project Two</h3>
+                <p>Project description explaining the cool things you built with your code.</p>
+                <a href="#" class="project-link">Link More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="project-card p-three">
+                <h3>Project Three</h3>
+                <p>Project description explaining the cool things you built with your code.</p>
+                <a href="#" class="project-link">Link More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Contact</h2>
+        <div class="underline"></div>
+        <p class="contact-p">Have a question or want to collaborate? Reach out on social media!</p>
+        <div class="social-links">
+            <a href="https://github.com" target="_blank" class="github"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your.email@example.com" class="envelope"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Current date &copy; 2026 | Created by a vibrant website creator</p>
+    </footer>
+
+</body>
+</html>            <p>Hello! I am a student/developer interested in creating impactful projects. I love learning new technologies, solving problems, and collaborating on digital creations. Turn this paragraph into a quick summary of who you are and what drives you!</p>
         </div>
     </section>
 
