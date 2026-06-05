@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Creative Portfolio</title>
+    <title>Kevin Huang | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -20,21 +20,568 @@
         }
 
         body {
-            /* Vibrant Gradient Background */
             background: linear-gradient(135deg, #0f0c20 0%, #15103c 50%, #051937 100%);
             color: #e0e0e0;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centers everything horizontally */
+            align-items: center;
         }
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             padding: 80px 20px;
-            text-align: center; /* Centers all inner text and elements */
+            text-align: center;
         }
+
+        /* --- Header Navigation --- */
+        header {
+            width: 100%;
+            background-color: rgba(15, 12, 32, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #ff7b00;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00f2fe;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .hero-content .highlight {
+            color: #00f2fe;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff7b00, #ffae00);
+            color: #fff;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 123, 0, 0.6);
+        }
+
+        /* --- Headings --- */
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            margin: 0 auto 40px auto;
+            border-radius: 2px;
+        }
+
+        /* --- About Section --- */
+        .about-text {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+
+        /* --- Dynamic Tabs System --- */
+        .tabs-container {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background: rgba(0, 242, 254, 0.1);
+            color: #00f2fe;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Cards Grid Layout --- */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            text-align: left;
+        }
+
+        .portfolio-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Theme-specific card accents */
+        .service-card { border-left: 4px solid #00f2fe; }
+        .ec-card { border-left: 4px solid #ff7b00; }
+        .award-card { border-left: 4px solid #9b51e0; }
+
+        .card-header h3 {
+            color: #fff;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #00f2fe;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .ec-card .card-meta { color: #ff7b00; }
+        .award-card .card-meta { color: #9b51e0; }
+
+        .card-body {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .card-subtext {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 12px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* --- Contact Section --- */
+        .contact-p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-links a {
+            font-size: 2.2rem;
+            color: #cbd5e1;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.15);
+        }
+        
+        .social-links .github:hover { color: #fff; }
+        .social-links .linkedin:hover { color: #0077b5; }
+        .social-links .envelope:hover { color: #ff7b00; }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: auto;
+            padding: 30px 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .tab-btn {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Kevin<span>Huang</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Kevin Huang</span></h1>
+            <p>Developer & Community Leader building impactful experiences</p>
+            <a href="#activities" class="btn">Explore My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="underline"></div>
+        <p class="about-text">
+            I am a student, developer, and community volunteer focused on leveraging technology and education to build stronger communities. 
+            From managing regional environmental bootcamps and computing clubs to hosting local educational programs across Taiwan's outer islands, 
+            I look for creative balance between logical technical frameworks and dynamic public leadership.
+        </p>
+    </section>
+
+    <section id="activities" class="container">
+        <h2>My Journey</h2>
+        <div class="underline"></div>
+
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab(event, 'all')">All Entries</button>
+                <button class="tab-btn" onclick="openTab(event, 'service')">Community Service</button>
+                <button class="tab-btn" onclick="openTab(event, 'extracurricular')">Extracurricular & Prep</button>
+                <button class="tab-btn" onclick="openTab(event, 'awards')">Awards & Honors</button>
+            </div>
+
+            <div id="all" class="tab-content active">
+                <div class="grid-layout">
+                    
+                    <div class="portfolio-card service-card">
+                        <div class="card-header">
+                            <span class="card-meta">COMMUNITY SERVICE</span>
+                            <h3>澎湖醫療小尖兵 財團法人澎湖海文教醫學慈善基金會 Penghu Medical Camp</h3>
+                        </div>
+                        <p class="card-body"><strong>Org:</strong> An organization supporting education, medicine, and development in Taiwan's outlying islands via bi-annual camps for indigenous elementary students. Themes span medical topics, ocean preservation, and AI.<br><br><strong>Role:</strong> Volunteered as a group leader for elementary students. Guided their learning process throughout the camp activities, managed group dynamics, and ensured safety.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 32 hrs/wk | 2 wks/yr | Grades: 8-12</div>
+                    </div>
+
+                    <div class="portfolio-card service-card">
+                        <div class="card-header">
+                            <span class="card-meta">COMMUNITY SERVICE</span>
+                            <h3>中橫健行 社團法人中華民國自強活動服務員協會</h3>
+                        </div>
+                        <p class="card-body"><strong>Org:</strong> Dedicated to preserving the iconic Central Cross-Island Highway trek. Revived by young CYC members post-1999 earthquake, it hosts camps to help youth appreciate Taiwan's natural mountain landscapes.<br><br><strong>Role:</strong> Progressed from childhood helper to core staff member. Managed night activities, tech setups (lighting/music), and evening performances across four mountain villages.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 68 hrs/wk | 2 wks/yr | Grades: 5-12</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">EXTRACURRICULAR / PREP</span>
+                            <h3>MiRcore Computational Biology & Biotech Sequencing Camp</h3>
+                        </div>
+                        <p class="card-body">Learned foundational biology and research tools (KEGG, STRING, NHGRI) at MiRcore/U-Mich. Used Great Lakes supercomputer to decode genomic sequences. Presented group research on Hemophilia causes and COVID-19 antibody concepts.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 40 hrs/wk | 2 wks/yr | Grade: 9</div>
+                    </div>
+
+                    <div class="portfolio-card service-card">
+                        <div class="card-header">
+                            <span class="card-meta">COMMUNITY SERVICE</span>
+                            <h3>Chihlee University of Technology Rural Summer Camp</h3>
+                        </div>
+                        <p class="card-body"><strong>Org:</strong> Organized by Chihlee's International Trade Department, serving Wanhe Elementary, a rural school in Changhua with 50 kids.<br><br><strong>Role:</strong> Served as a student leader managing schedules and handling emergencies. Pivoted overnight to design a morning of backup activities during a teacher absence. Taught an original class on reading social cues.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 120 hrs/wk | 1 wk/yr | Grade: 10</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">EXTRACURRICULAR / PREP</span>
+                            <h3>2024 UN-SDGs Bootcamp & Forum (GYLP Okinawa)</h3>
+                        </div>
+                        <p class="card-body">Engaged in global sustainability discussions and co-drafted the 2024 Bangkok Youth Sustainability Declaration. Collaborated with peers to design and present a project for an AI trash bin that automates recycling classification.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 16 hrs/wk | 1 wk/yr | Grade: 10</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">AWARD & HONOR • REGIONAL</span>
+                            <h3>Best Supporting Actor, English Drama Contest</h3>
+                        </div>
+                        <p class="card-body"><strong>Eligibility:</strong> Chosen as 1 of 3 winners out of 13 competing groups.<br><br><strong>Achievements:</strong> Collaborated with directors to analyze and flesh out a complex antagonist role (corrupted priest). Studied psychological traits and practiced for weeks to deliver a highly acclaimed stage performance.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-trophy"></i> Non-Academic | Grade: 11</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">AWARD & HONOR • INTERNATIONAL</span>
+                            <h3>ITS Python Certification</h3>
+                        </div>
+                        <p class="card-body"><strong>Eligibility:</strong> Required scoring 750 points or higher out of 1000.<br><br><strong>Achievements:</strong> Completed a comprehensive one-year Python programming curriculum and underwent rigorous, specialized exam preparation courses months before the final test date.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-trophy"></i> Academic | Grade: 8</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">EXTRACURRICULAR / PREP</span>
+                            <h3>34th Asian Pacific Association for Study of Liver</h3>
+                        </div>
+                        <p class="card-body">Traveled to Beijing to attend the annual medical conference. Contributed directly to the publication workflow of a research paper centered on utilizing Artificial Intelligence models to accurately identify tumors.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 16 hrs/wk | 1 wk/yr | Grade: 10</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">EXTRACURRICULAR / PREP</span>
+                            <h3>Club President, School Cinema Club</h3>
+                        </div>
+                        <p class="card-body">Directed club operations, managed movie selection voting processes, and spearheaded post-screening reflective forums. Led critical discussions focused on dissecting thematic messages, cinematic techniques, and cultural impacts.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 16 hrs/wk | 1 wk/yr | Grade: 10</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">EXTRACURRICULAR / PREP</span>
+                            <h3>Basketball Varsity Team</h3>
+                        </div>
+                        <p class="card-body">Participated actively as a dedicated varsity basketball team athlete, attending weekly training sessions, developing strategic team plays, and competing in scheduled school matches.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 2 hrs/wk | 44 wks/yr | Grades: 11-12</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">AWARD & HONOR • INTERNATIONAL</span>
+                            <h3>World Scholar's Cup Global Round Qualifier</h3>
+                        </div>
+                        <p class="card-body"><strong>Eligibility:</strong> Achieved top-tier placement during the regional round.<br><br><strong>Achievements:</strong> Competed in team debate, collaborative writing, a quiz game, and a multiple-choice test. Spearheaded intensive debate training sessions prior to the event, driving our team's global qualification.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-trophy"></i> Academic | Grade: 9</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">EXTRACURRICULAR / PREP</span>
+                            <h3>ICDF Club Co-Founder & Marketing Manager</h3>
+                        </div>
+                        <p class="card-body">Co-founded a club partnered with Taiwan's ICDF (MOFA). Led a merchandise fundraiser for rural Palau, personally raising the highest share of donations. Appointed Marketing Manager to direct campaigns and train new members.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 2 hrs/wk | 40 wks/yr | Grades: 11-12</div>
+                    </div>
+
+                    <div class="portfolio-card service-card">
+                        <div class="card-header">
+                            <span class="card-meta">COMMUNITY SERVICE</span>
+                            <h3>1221 Future Education Association 3AI Summer Camp</h3>
+                        </div>
+                        <p class="card-body"><strong>Org:</strong> Modernizes education for K-12 students. The 3AI Camp integrates AI training alongside reflective mental wellness classes geared toward student self-discovery.<br><br><strong>Role:</strong> Participated as a camper in 9th grade, then returned twice as a staff assistant. Traveled to Penghu and Matsu to deliver technology resources and AI instruction to students.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 16 hrs/wk | 1.5 wks/yr | Grades: 9-10</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">EXTRACURRICULAR / PREP</span>
+                            <h3>GIDAS Club Co-Founder & Vice-President</h3>
+                        </div>
+                        <p class="card-body">Co-founded the school's Genes in Diseases and Symptoms (GIDAS) chapter directly cooperating with MiRCore. Built a localized curriculum based on San Diego camp insights to teach club members computational biology basics.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-clock"></i> 1 hr/wk | 40 wks/yr | Grade: 11</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">AWARD & HONOR • INTERNATIONAL</span>
+                            <h3>ABRSM Piano Level 4</h3>
+                        </div>
+                        <p class="card-body">Successfully earned the ABRSM Piano Level 4 milestone certification. Currently utilizing technical foundations to prepare for the comprehensive Piano Level 8 performance exam and Music Theory Level 5 evaluation.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-trophy"></i> Non-Academic | Grades: 7-11</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">AWARD & HONOR • NATIONAL</span>
+                            <h3>114年度智慧科技素養與程式設計創新應用競賽 Second Place</h3>
+                        </div>
+                        <p class="card-body">Earned second place recognition nationally in the 114 fiscal year Smart Technology Literacy and Innovative Applications in Programming Competition, showcasing clean logical design and code structural formatting.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-trophy"></i> Academic | Grade: 9</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">AWARD & HONOR • INTERNATIONAL</span>
+                            <h3>第四屆旺旺孝親獎短影音大賽 Participant Award</h3>
+                        </div>
+                        <p class="card-body">Competed internationally in the 4th Wangwang Filial Piety Short Video Competition. Conceptualized, storyboarded, and produced visual content emphasizing cultural storytelling values through modern digital media platforms.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-trophy"></i> Non-Academic | Grade: 11</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="service" class="tab-content">
+                <div class="grid-layout" id="service-target">
+                    </div>
+            </div>
+
+            <div id="extracurricular" class="tab-content">
+                <div class="grid-layout" id="ec-target">
+                    </div>
+            </div>
+
+            <div id="awards" class="tab-content">
+                <div class="grid-layout" id="awards-target">
+                    </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Connect With Me</h2>
+        <div class="underline"></div>
+        <p class="contact-p">Let's discuss computer science, community work, or leadership opportunities!</p>
+        <div class="social-links">
+            <a href="https://github.com" target="_blank" class="github"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your.email@example.com" class="envelope"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kevin Huang. Built for dynamic visual presentations.</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Auto distribute copies into filtered categories on window build
+        window.addEventListener('DOMContentLoaded', () => {
+            const services = document.querySelectorAll('#all .service-card');
+            const ecs = document.querySelectorAll('#all .ec-card');
+            const awards = document.querySelectorAll('#all .award-card');
+
+            services.forEach(card => document.getElementById('service-target').appendChild(card.cloneNode(true)));
+            ecs.forEach(card => document.getElementById('ec-target').appendChild(card.cloneNode(true)));
+            awards.forEach(card => document.getElementById('awards-target').appendChild(card.cloneNode(true)));
+        });
+    </script>
+</body>
+</html>        }
 
         /* --- Header Navigation --- */
         header {
