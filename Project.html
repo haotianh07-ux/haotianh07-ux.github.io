@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- Global & Centered Styles --- */
+        /* --- Old Money / Heritage Styles --- */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Playfair:ital,opsz,wght@0,5..1200,300..600;1,5..1200,300..600&family=Inter:wght@300;400;500;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         html {
@@ -20,50 +21,55 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0f0c20 0%, #15103c 50%, #051937 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
+            background-color: #fbfaf7; /* Ivory / Alabaster Parchment */
+            color: #2c302e; /* Deep Charcoal Slate */
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
             display: flex;
             flex-direction: column;
             align-items: center;
+            letter-spacing: 0.01em;
         }
 
         .container {
             width: 100%;
-            max-width: 1000px;
-            padding: 80px 20px;
+            max-width: 1050px;
+            padding: 100px 30px;
             text-align: center;
         }
 
-        /* --- Header Navigation --- */
+        /* --- Elegant Navigation --- */
         header {
             width: 100%;
-            background-color: rgba(15, 12, 32, 0.9);
-            backdrop-filter: blur(10px);
+            background-color: rgba(251, 250, 247, 0.95);
+            backdrop-filter: blur(12px);
             position: fixed;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 24px 30px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff;
+            font-family: 'Cinzel', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #122b20; /* British Racing Green */
             text-decoration: none;
+            letter-spacing: 2px;
         }
 
         .logo span {
-            color: #ff7b00;
+            color: #c5a059; /* Champagne Gold */
+            font-weight: 400;
         }
 
         nav ul {
@@ -72,161 +78,170 @@
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 30px;
         }
 
         nav ul li a {
-            color: #b2bec3;
+            color: #575c58;
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: #00f2fe;
+            color: #122b20;
+            border-bottom: 1px solid #c5a059;
         }
 
-        /* --- Hero Section --- */
+        /* --- Tailored Hero Section --- */
         .hero {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
+            background: radial-gradient(circle at center, rgba(251,250,247,1) 0%, rgba(244,241,234,1) 100%);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #122b20;
+            letter-spacing: -0.5px;
         }
 
         .hero-content .highlight {
-            color: #00f2fe;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            color: #122b20;
+            position: relative;
         }
 
         .hero-content p {
-            font-size: 1.3rem;
-            color: #cbd5e1;
-            margin-bottom: 35px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #5d6660;
+            margin-bottom: 40px;
+            letter-spacing: 0.3px;
         }
 
         .btn {
-            background: linear-gradient(45deg, #ff7b00, #ffae00);
-            color: #fff;
-            padding: 14px 35px;
-            border-radius: 30px;
-            font-weight: bold;
+            background-color: #122b20;
+            color: #fbfaf7;
+            padding: 14px 40px;
+            border-radius: 0px; /* Sharp, structural architectural edges */
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #122b20;
+            transition: all 0.4s ease;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 123, 0, 0.6);
+            background-color: transparent;
+            color: #122b20;
+            transform: translateY(-2px);
         }
 
-        /* --- Headings --- */
+        /* --- Structural Typography & Headings --- */
         h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #ffffff;
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            color: #122b20;
+            text-transform: uppercase;
         }
 
         .underline {
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #00f2fe, #4facfe);
-            margin: 0 auto 40px auto;
-            border-radius: 2px;
+            width: 45px;
+            height: 1px;
+            background-color: #c5a059;
+            margin: 0 auto 50px auto;
         }
 
         /* --- About Section --- */
         .about-text {
-            font-size: 1.15rem;
-            max-width: 800px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            max-width: 820px;
             margin: 0 auto;
-            color: #cbd5e1;
+            color: #3a3f3c;
+            line-height: 1.8;
         }
 
-        /* --- Stats Dashboard System --- */
+        /* --- Academic Metric Display --- */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            gap: 30px;
             margin-top: 20px;
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 25px 15px;
+            background: #ffffff;
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            border-radius: 0px;
+            padding: 35px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(18, 43, 32, 0.02);
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 242, 254, 0.15);
-            border-color: rgba(0, 242, 254, 0.3);
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #00f2fe, #4facfe);
-        }
-
-        /* Accent color swap for variation */
-        .stat-card.orange-accent::before {
-            background: linear-gradient(90deg, #ff7b00, #ffae00);
-        }
-        .stat-card.orange-accent:hover {
-            box-shadow: 0 8px 20px rgba(255, 123, 0, 0.15);
-            border-color: rgba(255, 123, 0, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(197, 160, 89, 0.12);
+            border-color: #c5a059;
         }
 
         .stat-icon {
-            font-size: 1.8rem;
-            color: #00f2fe;
-            margin-bottom: 10px;
-        }
-        .orange-accent .stat-icon {
-            color: #ff7b00;
+            font-size: 1.4rem;
+            color: #c5a059;
+            margin-bottom: 15px;
         }
 
         .stat-number {
+            font-family: 'Cinzel', serif;
             font-size: 2.2rem;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 5px;
+            font-weight: 400;
+            color: #122b20;
+            line-height: 1.1;
+            margin-bottom: 8px;
         }
 
         .stat-label {
-            font-size: 0.9rem;
-            color: #94a3b8;
+            font-size: 0.75rem;
+            color: #575c58;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
         }
 
         .stat-desc {
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-top: 5px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #7d8580;
+            margin-top: 8px;
         }
 
-        /* --- Dynamic Tabs System --- */
+        /* --- Filter Systems --- */
         .tabs-container {
             margin-top: 20px;
             width: 100%;
@@ -235,38 +250,49 @@
         .tab-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
+            gap: 10px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            padding-bottom: 16px;
         }
 
         .tab-btn {
-            background: rgba(255, 255, 255, 0.05);
-            color: #cbd5e1;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 24px;
-            border-radius: 25px;
+            background: transparent;
+            color: #7d8580;
+            border: none;
+            padding: 10px 20px;
             cursor: pointer;
+            font-family: 'Cinzel', serif;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             transition: all 0.3s ease;
         }
 
         .tab-btn:hover {
-            background: rgba(0, 242, 254, 0.1);
-            color: #00f2fe;
+            color: #122b20;
         }
 
         .tab-btn.active {
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
-            color: #fff;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            color: #122b20;
+            position: relative;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #122b20;
         }
 
         .tab-content {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.6s ease;
         }
 
         .tab-content.active {
@@ -274,124 +300,148 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- Cards Grid Layout --- */
+        /* --- Dossier Ledger Layout --- */
         .grid-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
             text-align: left;
         }
 
         .portfolio-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: #ffffff;
+            padding: 35px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: all 0.3s ease;
         }
 
         .portfolio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(18, 43, 32, 0.06);
+            border-color: rgba(197, 160, 89, 0.4);
         }
 
-        /* Theme-specific card accents */
-        .ec-card { border-left: 4px solid #ff7b00; }
-        .award-card { border-left: 4px solid #9b51e0; }
-        .service-card { border-left: 4px solid #00f2fe; }
+        /* Subtle Left Accents for Category Distinction */
+        .ec-card { border-top: 3px solid #122b20; } /* Racing Green */
+        .award-card { border-top: 3px solid #2d141e; } /* Vintage Burgundy */
+        .service-card { border-top: 3px solid #c5a059; } /* Champagne Gold */
 
         .card-header h3 {
-            color: #fff;
-            font-size: 1.25rem;
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            color: #122b20;
+            font-size: 1.35rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 12px;
         }
 
         .card-meta {
-            font-size: 0.85rem;
-            color: #ff7b00;
-            margin-bottom: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: #122b20;
+            margin-bottom: 8px;
+            display: block;
             font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        .award-card .card-meta { color: #9b51e0; }
-        .service-card .card-meta { color: #00f2fe; }
+        .award-card .card-meta { color: #2d141e; }
+        .service-card .card-meta { color: #8e6d2b; }
 
         .card-body {
-            color: #cbd5e1;
+            color: #4a504c;
             font-size: 0.95rem;
-            margin-bottom: 15px;
+            line-height: 1.7;
+            margin-bottom: 25px;
         }
 
         .card-body strong {
-            color: #ffffff;
+            color: #122b20;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
         }
 
         .card-subtext {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 12px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 15px;
+            font-size: 0.8rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            color: #7d8580;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-subtext i {
+            color: #c5a059;
             font-size: 0.85rem;
-            color: #94a3b8;
         }
 
-        /* --- Contact Section --- */
+        /* --- Correspondence System --- */
         .contact-p {
-            color: #94a3b8;
-            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #575c58;
+            margin-bottom: 40px;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 40px;
         }
 
         .social-links a {
-            font-size: 2.2rem;
-            color: #cbd5e1;
-            transition: transform 0.3s, color 0.3s;
+            font-size: 1.6rem;
+            color: #575c58;
+            transition: all 0.3s;
         }
 
         .social-links a:hover {
-            transform: scale(1.15);
+            transform: translateY(-3px);
+            color: #122b20;
         }
-        
-        .social-links .github:hover { color: #fff; }
-        .social-links .linkedin:hover { color: #0077b5; }
-        .social-links .envelope:hover { color: #ff7b00; }
 
         /* --- Footer --- */
         footer {
             margin-top: auto;
-            padding: 30px 20px;
+            padding: 40px 20px;
             width: 100%;
             text-align: center;
-            font-size: 0.9rem;
-            color: #64748b;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #7d8580;
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            background-color: #f4f1ea;
         }
 
-        /* Responsive Design */
+        /* Responsive Formatting */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
             }
             nav ul li {
-                margin: 0 10px;
+                margin: 0 12px;
             }
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             .tab-btn {
-                padding: 10px 18px;
-                font-size: 0.9rem;
+                padding: 8px 12px;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -400,12 +450,12 @@
 
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">Kevin<span>Huang</span></a>
+            <a href="#" class="logo">Kevin <span>Huang</span></a>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#stats">Stats</a></li>
-                    <li><a href="#activities">Activities</a></li>
+                    <li><a href="#stats">Metrics</a></li>
+                    <li><a href="#activities">Dossier</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -416,7 +466,7 @@
         <div class="hero-content">
             <h1>Hi, I'm <span class="highlight">Kevin Huang</span></h1>
             <p>Developer & Community Leader building impactful experiences</p>
-            <a href="#activities" class="btn">Explore My Journey</a>
+            <a href="#activities" class="btn">View Academic Dossier</a>
         </div>
     </section>
 
@@ -429,19 +479,230 @@
     </section>
 
     <section id="stats" class="container" style="padding-top: 40px; padding-bottom: 40px;">
-        <h2>Academic Overview</h2>
+        <h2>Academic Benchmarks</h2>
         <div class="underline"></div>
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <div class="stat-number">4.0 / 4.0</div>
-                <div class="stat-label">Unweighted GPA</div>
-                <div class="stat-desc">Top tier rank profile</div>
+                <div class="stat-icon"><i class="fa-solid fa-language"></i></div>
+                <div class="stat-number">Band 8.0</div>
+                <div class="stat-label">IELTS Academic</div>
+                <div class="stat-desc">Expert English proficiency profile</div>
             </div>
-            <div class="stat-card orange-accent">
+            <div class="stat-card">
                 <div class="stat-icon"><i class="fa-solid fa-calculator"></i></div>
                 <div class="stat-number">1540</div>
                 <div class="stat-label">SAT Score</div>
-                <div class="stat-desc">or 35 ACT / Percentile benchmark</div>
+                <div class="stat-desc">Top-tier global percentile benchmark</div>
             </div>
-            <div class="stat-
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                <div class="stat-number">8</div>
+                <div class="stat-label">Advanced Courses</div>
+                <div class="stat-desc">Rigorous advanced STEM curriculum</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-award"></i></div>
+                <div class="stat-number">Rank #1</div>
+                <div class="stat-label">Oration / Pitch Laurels</div>
+                <div class="stat-desc">Cross-disciplinary public excellence</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="activities" class="container">
+        <h2>Curriculum & Honors Dossier</h2>
+        <div class="underline"></div>
+
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="openTab(event, 'all')">All Records</button>
+                <button class="tab-btn" onclick="openTab(event, 'extracurricular')">Extracurricular & Research</button>
+                <button class="tab-btn" onclick="openTab(event, 'awards')">Laurels & Honors</button>
+                <button class="tab-btn" onclick="openTab(event, 'service')">Civic Engagement</button>
+            </div>
+
+            <div id="all" class="tab-content active">
+                <div class="grid-layout">
+                    
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">RESEARCH & FELLOWSHIP</span>
+                            <h3>miRcore Computational Biology & Biotech Sequencing Camp</h3>
+                        </div>
+                        <p class="card-body">I spent two weeks in San Diego attending camps hosted by MiRcore, one of the biggest biology research centers, and the University of Michigan. The first week, I attended the Computational Biology Camp. We learned a relatively basic introductory level of Biology and went to visit the MiRcore research lab. We also learned to use research tools like Kegg, String, and NHGRI. On the last day, we made a presentation on Hemophilia and the genomes that could have contributed to it. The second camp was a sequencing camp. The focus was more on coding and biotechnology. We learned to use the Great Lakes System, a supercomputer system created by the University of Michigan. Using the system, we could decode and analyze genomic sequences, allowing us to do deep research. The last day, we had a presentation on the idea of using Antibodies for COVID-19.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-hourglass-half"></i> 40 hrs/wk | 2 wks/yr | Grade: 9</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">GLOBAL DELEGATION</span>
+                            <h3>Global Youth Leadership Programme UN-SDGs Bootcamp & Forum</h3>
+                        </div>
+                        <p class="card-body">I attended the UN-SDGs Bootcamp and Forum in Okinawa. During the forum, we had discussions and lectures on topics regarding SDGs. Also, my classmates and I presented our project during the forum. We designed an AI trash bin that would identify the trash thrown into the trash can and make simple classifications. We came up with this idea because we discovered that many people, even though they do know that recyclable trash should be categorized, do not know which category it should be in. The main event of the forum was to draft the 2024 Bangkok Youth Sustainability Declaration. We were divided into groups and discussed each aspect of the SDGs sustainability goals, drafting the whole declaration together.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-hourglass-half"></i> 16 hrs/wk | 1 wk/yr | Grade: 10</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">SCIENTIFIC CONTRIBUTIONS</span>
+                            <h3>34th Annual Asian Pacific Association for the Study of Liver</h3>
+                        </div>
+                        <p class="card-body">I attended the meeting in Beijing and helped with the publication of one of the papers about using Artificial intelligence to identify tumors. I gathered the information and tidied up the statistics, drawing the conclusion of the study and the research. Also, I prepared a presentation to present to any participant of the forum who might be interested in our research.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-hourglass-half"></i> 16 hrs/wk | 1 wk/yr | Grade: 10</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">CLUB LEADERSHIP</span>
+                            <h3>School Cinema Club, President</h3>
+                        </div>
+                        <p class="card-body">Every time we finished a movie, we voted on a new movie to watch. I led the discussion in the process and made the final decision. Moreover, we would reflect on the movies, discussing the message and what we’ve learned. I was responsible for leading the reflective discussions. I would often ask members guiding questions, allowing them to give out their opinions. I particularly enjoyed discussing what motivated a specific character to make certain decisions.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-hourglass-half"></i> 1 hr/wk | 64 wks/yr | Grade: 10</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">ATHLETICS</span>
+                            <h3>Varsity Basketball</h3>
+                        </div>
+                        <p class="card-body">Participate in the Basketball Varsity team</p>
+                        <div class="card-subtext"><i class="fa-solid fa-hourglass-half"></i> 2 hrs/wk | 44 wks/yr | Grades: 11-12</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">FINANCIAL FOUNDERSHIP</span>
+                            <h3>ICDF Club, Manager of Marketing/Co-Founder</h3>
+                        </div>
+                        <p class="card-body">Our club connects with the International Cooperation and Development Fund (ICDF) to achieve its annual goals. To raise funds for Palau, we sold merchandise and reusable bags in exchange for donations of any amount. I raised far more money than other members, so I began making decisions about our fundraiser and cultivating new members.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-hourglass-half"></i> 2 hrs/wk | 40 wks/yr | Grades: 11-12</div>
+                    </div>
+
+                    <div class="portfolio-card ec-card">
+                        <div class="card-header">
+                            <span class="card-meta">CLUB LEADERSHIP / FOUNDER</span>
+                            <h3>GIDAS Club Co-Founder & Vice President</h3>
+                        </div>
+                        <p class="card-body">After attending the MiRCore biotechnology camp in San Diego, we decided to create our own GIDAS club, a club directly cooperating with MiRCore. In the club, we teach our club members the curriculum given by MiRCore using the knowledge we learned in the camp.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-hourglass-half"></i> 1 hr/wk | 40 wks/yr | Grade: 11</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">LAURELS • THEATRICAL</span>
+                            <h3>School English Drama Contest Best Supporting Actor</h3>
+                        </div>
+                        <p class="card-body"><strong>Eligibility:</strong> 3 winners were chosen from 13 groups.<br><br><strong>Details:</strong> I portrayed a corrupt, psychotic priest who was feared by all of the characters, discussing the details with the scriptwriters and the director. To bring the role to life, I analyzed many characters with similar traits, while trying to understand how they might act to get into character more fully. After weeks of practicing, I delivered a satisfying performance.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-scroll"></i> Arts Laurel | Grade: 11</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">LAURELS • INTERNATIONAL DIALECTIC</span>
+                            <h3>World Scholar’s Cup Global Round Qualified</h3>
+                        </div>
+                        <p class="card-body"><strong>Eligibility:</strong> Perform outstandingly in the regional round. The competition is split into four parts, team debate, a multiple choice test, collaborative writing, and a team based quiz game.<br><br><strong>Details:</strong> We specifically worked on debating before the contest, and I believe that was the crucial key to our qualification.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-scroll"></i> Academic Honor | Grade: 9</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">LAURELS • ENTERPRISE</span>
+                            <h3>Blue Ocean Top 500</h3>
+                        </div>
+                        <p class="card-body"><strong>Eligibility:</strong> Chosen out of all of the participants.<br><br><strong>Details:</strong> I provided the idea that we eventually adopted.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-scroll"></i> Strategic Merit | Grade: 11</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">LAURELS • CREATIVE CINEMA</span>
+                            <h3>Distinguished Entry, “Little Influencers, Big Dreams” Short Video Competition</h3>
+                        </div>
+                        <p class="card-body"><strong>Eligibility:</strong> Submit a video to youtube. It is rated based on popularity and ratings from judges.<br><br><strong>Details:</strong> Recorded a video and submitted it</p>
+                        <div class="card-subtext"><i class="fa-solid fa-scroll"></i> Creative Distinction | Grade: 11</div>
+                    </div>
+
+                    <div class="portfolio-card award-card">
+                        <div class="card-header">
+                            <span class="card-meta">LAURELS • CREATIVE CINEMA</span>
+                            <h3>Best Popularity Award, Want Want Filial Piety Award</h3>
+                        </div>
+                        <p class="card-body"><strong>Eligibility:</strong> Submit a video to youtube. It is rated based on popularity and ratings from judges.<br><br><strong>Details:</strong> Recorded a video and submitted it</p>
+                        <div class="card-subtext"><i class="fa-solid fa-scroll"></i> Public Recognition | Grade: 11</div>
+                    </div>
+
+                    <div class="portfolio-card service-card">
+                        <div class="card-header">
+                            <span class="card-meta">CIVIC ENGAGEMENT • CLINICAL</span>
+                            <h3>Penghu Ocean Foundation, Penghu Medical Camp</h3>
+                        </div>
+                        <p class="card-body"><strong>Description:</strong> The organization is dedicated to supporting education, medicine, and development in Penghu and other outlying islands of Taiwan. It hosts educational camps for indigenous elementary school students twice a year, focusing mainly on medical themes.<br><br><strong>What I Did:</strong> Students were separated into 6 groups, and every group had a group leader. I volunteered to work as one of the group leaders, taking care of the kids and guiding their learning process.</p>
+                        <div class="card-subtext"><i class="fa-solid fa-heart"></i> Humanitarian | Grades: 8-12</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="extracurricular" class="tab-content"></div>
+            <div id="awards" class="tab-content"></div>
+            <div id="service" class="tab-content"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Correspondence</h2>
+        <div class="underline"></div>
+        <p class="contact-p">Let's collaborate or discuss developments in computational biology and classical architecture design.</p>
+        <div class="social-links">
+            <a href="#" class="github"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="envelope"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kevin Huang. Built with classical precision.</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            if(tabName === 'all') {
+                tabcontent = document.getElementsByClassName("tab-content");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].classList.remove("active");
+                }
+                document.getElementById("all").classList.add("active");
+                
+                var cards = document.getElementsByClassName("portfolio-card");
+                for (i = 0; i < cards.length; i++) {
+                    cards[i].style.display = "flex";
+                }
+            } else {
+                document.getElementById("all").classList.add("active");
+                var cards = document.getElementsByClassName("portfolio-card");
+                
+                for (i = 0; i < cards.length; i++) {
+                    if (tabName === 'extracurricular' && cards[i].classList.contains('ec-card')) {
+                        cards[i].style.display = "flex";
+                    } else if (tabName === 'awards' && cards[i].classList.contains('award-card')) {
+                        cards[i].style.display = "flex";
+                    } else if (tabName === 'service' && cards[i].classList.contains('service-card')) {
+                        cards[i].style.display = "flex";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+            }
+            
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
