@@ -7,8 +7,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- Old Money / Heritage Styles --- */
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Playfair:ital,opsz,wght@0,5..1200,300..600;1,5..1200,300..600;1,5..1200,300..600&family=Inter:wght@300;400;500;600&display=swap');
+        /* --- Old Money / Heritage Styles & Theme Tokens --- */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+        :root {
+            --bg-color: #fbfaf7;          /* Ivory / Alabaster Parchment */
+            --text-main: #2c302e;         /* Deep Charcoal Slate */
+            --text-muted: #575c58;
+            --text-light: #7d8580;
+            --primary-green: #122b20;     /* British Racing Green */
+            --accent-gold: #c5a059;       /* Champagne Gold */
+            --card-bg: #ffffff;
+            --nav-bg: rgba(251, 250, 247, 0.95);
+            --border-subtle: rgba(197, 160, 89, 0.2);
+            --border-card: rgba(0, 0, 0, 0.06);
+            --card-subtext-border: rgba(0, 0, 0, 0.05);
+            --hero-gradient: radial-gradient(circle at center, rgba(251,250,247,1) 0%, rgba(244,241,234,1) 100%);
+            --chart-track: rgba(18, 43, 32, 0.05);
+            --footer-bg: #f4f1ea;
+        }
+
+        /* --- Dark Theme Palette Overrides --- */
+        body.dark-theme {
+            --bg-color: #0f1311;          /* Deep Midnight Forest Slate */
+            --text-main: #f3f4f3;         /* Crisp Soft White */
+            --text-muted: #b4bbb6;
+            --text-light: #8a938e;
+            --primary-green: #c5a059;     /* Gold becomes primary anchor */
+            --accent-gold: #e9d5a1;       /* Lighter brilliant gold */
+            --card-bg: #171c19;           /* Velvet Dark Slate */
+            --nav-bg: rgba(15, 19, 17, 0.95);
+            --border-subtle: rgba(197, 160, 89, 0.3);
+            --border-card: rgba(197, 160, 89, 0.15);
+            --card-subtext-border: rgba(255, 255, 255, 0.08);
+            --hero-gradient: radial-gradient(circle at center, #171c19 0%, #0f1311 100%);
+            --chart-track: rgba(255, 255, 255, 0.08);
+            --footer-bg: #0b0d0c;
+        }
 
         * {
             margin: 0;
@@ -21,14 +56,15 @@
         }
 
         body {
-            background-color: #fbfaf7; /* Ivory / Alabaster Parchment */
-            color: #2c302e; /* Deep Charcoal Slate */
+            background-color: var(--bg-color);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
             line-height: 1.7;
             display: flex;
             flex-direction: column;
             align-items: center;
             letter-spacing: 0.01em;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         .container {
@@ -41,12 +77,13 @@
         /* --- Elegant Navigation --- */
         header {
             width: 100%;
-            background-color: rgba(251, 250, 247, 0.95);
+            background-color: var(--nav-bg);
             backdrop-filter: blur(12px);
             position: fixed;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: background-color 0.4s ease, border-color 0.4s ease;
         }
 
         .nav-container {
@@ -55,26 +92,45 @@
             align-items: center;
             max-width: 1050px;
             margin: 0 auto;
-            padding: 24px 30px;
+            padding: 16px 30px;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
         }
 
         .logo {
             font-family: 'Cinzel', serif;
             font-size: 1.35rem;
             font-weight: 600;
-            color: #122b20; /* British Racing Green */
-            text-decoration: none;
+            color: var(--primary-green);
             letter-spacing: 2px;
+            transition: color 0.4s ease;
         }
 
         .logo span {
-            color: #c5a059; /* Champagne Gold */
+            color: var(--accent-gold);
             font-weight: 400;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
         }
 
         nav ul {
             display: flex;
             list-style: none;
+            align-items: center;
         }
 
         nav ul li {
@@ -82,7 +138,7 @@
         }
 
         nav ul li a {
-            color: #575c58;
+            color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
@@ -92,8 +148,32 @@
         }
 
         nav ul li a:hover {
-            color: #122b20;
-            border-bottom: 1px solid #c5a059;
+            color: var(--primary-green);
+            border-bottom: 1px solid var(--accent-gold);
+        }
+
+        /* --- Theme Toggle Action --- */
+        .theme-toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            cursor: pointer;
+            margin-left: 30px;
+            padding: 4px;
+            transition: color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle-btn:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+        body.dark-theme .theme-toggle-btn i::before {
+            content: "\f185"; /* Swaps to sun icon in dark mode */
         }
 
         /* --- Tailored Hero Section --- */
@@ -103,8 +183,9 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            background: radial-gradient(circle at center, rgba(251,250,247,1) 0%, rgba(244,241,234,1) 100%);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            background: var(--hero-gradient);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: background 0.4s ease;
         }
 
         .hero-content {
@@ -117,14 +198,15 @@
             font-size: 4rem;
             font-weight: 400;
             margin-bottom: 20px;
-            color: #122b20;
+            color: var(--primary-green);
             letter-spacing: -0.5px;
+            transition: color 0.4s ease;
         }
 
         .hero-content .highlight {
             font-style: italic;
             font-family: 'Playfair Display', serif;
-            color: #122b20;
+            color: var(--primary-green);
             position: relative;
         }
 
@@ -132,29 +214,29 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: 1.4rem;
-            color: #5d6660;
+            color: var(--text-muted);
             margin-bottom: 40px;
             letter-spacing: 0.3px;
         }
 
         .btn {
-            background-color: #122b20;
-            color: #fbfaf7;
+            background-color: var(--primary-green);
+            color: var(--bg-color);
             padding: 14px 40px;
-            border-radius: 0px; /* Sharp, structural architectural edges */
+            border-radius: 0px;
             font-family: 'Cinzel', serif;
             font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-decoration: none;
             display: inline-block;
-            border: 1px solid #122b20;
+            border: 1px solid var(--primary-green);
             transition: all 0.4s ease;
         }
 
         .btn:hover {
             background-color: transparent;
-            color: #122b20;
+            color: var(--primary-green);
             transform: translateY(-2px);
         }
 
@@ -165,14 +247,15 @@
             font-weight: 400;
             letter-spacing: 3px;
             margin-bottom: 15px;
-            color: #122b20;
+            color: var(--primary-green);
             text-transform: uppercase;
+            transition: color 0.4s ease;
         }
 
         .underline {
             width: 45px;
             height: 1px;
-            background-color: #c5a059;
+            background-color: var(--accent-gold);
             margin: 0 auto 50px auto;
         }
 
@@ -182,7 +265,7 @@
             font-size: 1.3rem;
             max-width: 820px;
             margin: 0 auto;
-            color: #3a3f3c;
+            color: var(--text-muted);
             line-height: 1.8;
         }
 
@@ -195,8 +278,8 @@
         }
 
         .stat-card {
-            background: #ffffff;
-            border: 1px solid rgba(197, 160, 89, 0.25);
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
             border-radius: 0px;
             padding: 35px 20px;
             text-align: center;
@@ -207,12 +290,12 @@
         .stat-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 30px rgba(197, 160, 89, 0.12);
-            border-color: #c5a059;
+            border-color: var(--accent-gold);
         }
 
         .stat-icon {
             font-size: 1.4rem;
-            color: #c5a059;
+            color: var(--accent-gold);
             margin-bottom: 15px;
         }
 
@@ -220,14 +303,15 @@
             font-family: 'Cinzel', serif;
             font-size: 2.2rem;
             font-weight: 400;
-            color: #122b20;
+            color: var(--primary-green);
             line-height: 1.1;
             margin-bottom: 8px;
+            transition: color 0.4s ease;
         }
 
         .stat-label {
             font-size: 0.75rem;
-            color: #575c58;
+            color: var(--text-muted);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -237,8 +321,80 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: 0.85rem;
-            color: #7d8580;
+            color: var(--text-light);
             margin-top: 8px;
+        }
+
+        /* --- Premium Pure CSS GPA Bar Chart Architecture --- */
+        .chart-section {
+            margin-top: 60px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            padding: 45px 40px;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(18, 43, 32, 0.01);
+        }
+
+        .chart-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: var(--primary-green);
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .chart-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .chart-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .chart-track {
+            background-color: var(--chart-track);
+            width: 100%;
+            height: 32px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .chart-bar {
+            background: linear-gradient(90deg, var(--primary-green) 0%, var(--accent-gold) 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            width: 0; /* Dynamic injection animation trigger target */
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body.dark-theme .chart-bar {
+            color: #0f1311;
+            font-weight: 700;
         }
 
         /* --- Filter Systems --- */
@@ -253,13 +409,13 @@
             gap: 10px;
             margin-bottom: 50px;
             flex-wrap: wrap;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: 1px solid var(--border-subtle);
             padding-bottom: 16px;
         }
 
         .tab-btn {
             background: transparent;
-            color: #7d8580;
+            color: var(--text-light);
             border: none;
             padding: 10px 20px;
             cursor: pointer;
@@ -272,11 +428,11 @@
         }
 
         .tab-btn:hover {
-            color: #122b20;
+            color: var(--primary-green);
         }
 
         .tab-btn.active {
-            color: #122b20;
+            color: var(--primary-green);
             position: relative;
         }
 
@@ -287,7 +443,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: #122b20;
+            background-color: var(--primary-green);
         }
 
         .tab-content {
@@ -313,9 +469,9 @@
         }
 
         .portfolio-card {
-            background: #ffffff;
+            background: var(--card-bg);
             padding: 35px;
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-card);
             box-shadow: 0 5px 20px rgba(0,0,0,0.02);
             display: flex;
             flex-direction: column;
@@ -326,64 +482,69 @@
         .portfolio-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(18, 43, 32, 0.06);
-            border-color: rgba(197, 160, 89, 0.4);
+            border-color: var(--accent-gold);
         }
 
-        /* Subtle Left Accents for Category Distinction */
-        .ec-card { border-top: 3px solid #122b20; } /* Racing Green */
-        .award-card { border-top: 3px solid #2d141e; } /* Vintage Burgundy */
-        .service-card { border-top: 3px solid #c5a059; } /* Champagne Gold */
+        .ec-card { border-top: 3px solid #122b20; } 
+        body.dark-theme .ec-card { border-top-color: var(--accent-gold); }
+        .award-card { border-top: 3px solid #2d141e; } 
+        body.dark-theme .award-card { border-top-color: #d46a84; }
+        .service-card { border-top: 3px solid #c5a059; } 
 
         .card-header h3 {
             font-family: 'Playfair Display', serif;
-            color: #122b20;
+            color: var(--primary-green);
             font-size: 1.35rem;
             font-weight: 600;
             line-height: 1.4;
             margin-bottom: 12px;
+            transition: color 0.4s ease;
         }
 
         .card-meta {
             font-family: 'Cinzel', serif;
             font-size: 0.75rem;
-            color: #122b20;
+            color: var(--primary-green);
             margin-bottom: 8px;
             display: block;
             font-weight: 600;
             letter-spacing: 1px;
+            transition: color 0.4s ease;
         }
 
         .award-card .card-meta { color: #2d141e; }
+        body.dark-theme .award-card .card-meta { color: #d46a84; }
         .service-card .card-meta { color: #8e6d2b; }
+        body.dark-theme .service-card .card-meta { color: var(--accent-gold); }
 
         .card-body {
-            color: #4a504c;
+            color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.7;
             margin-bottom: 25px;
         }
 
         .card-body strong {
-            color: #122b20;
+            color: var(--primary-green);
             font-family: 'Cinzel', serif;
             font-size: 0.8rem;
             letter-spacing: 0.5px;
         }
 
         .card-subtext {
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 1px solid var(--card-subtext-border);
             padding-top: 15px;
             font-size: 0.8rem;
             font-family: 'Cinzel', serif;
             letter-spacing: 1px;
-            color: #7d8580;
+            color: var(--text-light);
             display: flex;
             align-items: center;
             gap: 8px;
         }
         
         .card-subtext i {
-            color: #c5a059;
+            color: var(--accent-gold);
             font-size: 0.85rem;
         }
 
@@ -392,7 +553,7 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: 1.2rem;
-            color: #575c58;
+            color: var(--text-muted);
             margin-bottom: 40px;
         }
 
@@ -404,13 +565,13 @@
 
         .social-links a {
             font-size: 1.6rem;
-            color: #575c58;
+            color: var(--text-muted);
             transition: all 0.3s;
         }
 
         .social-links a:hover {
             transform: translateY(-3px);
-            color: #122b20;
+            color: var(--primary-green);
         }
 
         /* --- Footer --- */
@@ -422,9 +583,10 @@
             font-family: 'Cinzel', serif;
             font-size: 0.75rem;
             letter-spacing: 2px;
-            color: #7d8580;
-            border-top: 1px solid rgba(197, 160, 89, 0.15);
-            background-color: #f4f1ea;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-subtle);
+            background-color: var(--footer-bg);
+            transition: background-color 0.4s ease, border-color 0.4s ease;
         }
 
         /* Responsive Formatting */
@@ -436,12 +598,20 @@
             nav ul li {
                 margin: 0 12px;
             }
+            .theme-toggle-btn {
+                margin-left: 12px;
+                margin-top: 5px;
+            }
             .hero-content h1 {
                 font-size: 2.8rem;
             }
             .tab-btn {
                 padding: 8px 12px;
                 font-size: 0.75rem;
+            }
+            .chart-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
             }
         }
     </style>
@@ -450,7 +620,10 @@
 
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">Kevin <span>Huang</span></a>
+            <a href="#" class="logo-group">
+                <img src="https://iep.wghs.tp.edu.tw/images/Wego.png" alt="Wego Crest" class="logo-img">
+                <span class="logo">Kevin <span>Huang</span></span>
+            </a>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -458,6 +631,9 @@
                     <li><a href="#activities">Dossier</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
             </nav>
         </div>
     </header>
@@ -499,6 +675,30 @@
                 <div class="stat-number">7 AP Courses</div>
                 <div class="stat-label">Curriculum Rigor</div>
                 <div class="stat-desc">Chem, Calc AB, APCSA, APUSH, Phys C: Mech, HUG, Psych</div>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <h3>Grade Point Average Progression</h3>
+            <div class="chart-wrapper">
+                <div class="chart-row">
+                    <div class="chart-label">9th Grade</div>
+                    <div class="chart-track">
+                        <div class="chart-bar" style="width: 82%;">4.10 GPA</div>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-label">10th Grade</div>
+                    <div class="chart-track">
+                        <div class="chart-bar" style="width: 85.4%;">4.27 GPA</div>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-label">11th Grade</div>
+                    <div class="chart-track">
+                        <div class="chart-bar" style="width: 90%;">4.50 GPA</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -669,6 +869,26 @@
     </footer>
 
     <script>
+        // --- Dark/Bright Theme Toggle Action ---
+        const themeToggleBtn = document.getElementById('themeToggle');
+        
+        // Check for saved user setting configuration
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            
+            // Sync current theme choice to localStorage
+            if (document.body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'bright');
+            }
+        });
+
+        // --- Ledger Filter System Management ---
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             
